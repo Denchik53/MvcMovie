@@ -1,32 +1,20 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using MvcMovie.Models;
+using System.Text.Encodings.Web;
 
-namespace MvcMovie.Controllers
+namespace MvcMovie.Controllers;
+
+public class HelloWorldController : Controller
 {
-    public class HomeController : Controller
+    // 
+    // GET: /HelloWorld/
+    public string Index()
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        return "This is my default action...";
+    }
+    // 
+    // GET: /HelloWorld/Welcome/ 
+    public string Welcome(string name, int ID = 1)
+    {
+        return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
     }
 }
