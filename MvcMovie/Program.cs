@@ -4,7 +4,7 @@ using MvcMovie.Data;
 using MvcMovie.Models;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MvcMovieContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MvcMovieContext") ?? throw new InvalidOperationException("Connection string 'MvcMovieContext' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("PagesMovieContext") ?? throw new InvalidOperationException("Connection string 'PagesMovieContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
