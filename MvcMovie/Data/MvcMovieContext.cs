@@ -7,9 +7,9 @@ using MvcMovie.Models;
 
 namespace MvcMovie.Data
 {
-    public class PagesMovieContext : DbContext
+    public class MvcMovieContext : DbContext
     {
-        public PagesMovieContext (DbContextOptions<PagesMovieContext> options)
+        public MvcMovieContext (DbContextOptions<MvcMovieContext> options)
             : base(options)
         {
         }
